@@ -1,0 +1,50 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 10px 0px 0px 70px;
+}
+
+img{
+  max-height: 60px;
+  cursor: pointer;
+}
+
+button{
+  background: transparent;
+  border: none;
+}
+
+.title{
+  font-size: 50px;
+  color: #bb8854;
+}
+
+.geral{
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.geral button{
+  font-size: 50px;
+  font-family: 'Irish Grover', cursive;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  background-color: #bb8854;
+  margin-top: 50px;
+  padding: 20px;
+  width: 550px;
+  border-radius: 20px;
+}
+
+.geral button:hover{
+  border: 3px solid #bb8854;
+  background-color: #74432F;
+  color: #bb8854;
+}
+
+
+

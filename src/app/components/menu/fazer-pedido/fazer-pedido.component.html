@@ -1,0 +1,40 @@
+<section>
+  <div class="header">
+    <p class="title">Registrar Pedidos</p>
+    <button class="img-title">
+      <img src="../../../assets/iconizer-arrow-right-from-bracket-solid.svg" alt="">
+    </button>
+  </div>
+  <div class="geral">
+    <div class="fazerPedido">
+      <div class="menu-title">
+        <p>Novo pedido</p>
+      </div>
+      <div class="foods">
+        <button class="coffee">Café da manhã</button>
+        <button class="burger">Hamburguers</button>
+        <button class="bebidas">Bebidas</button>
+      </div>
+      <div class="listProducts">
+        <ul>
+          <li *ngFor="let item of items">{{ item.name }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pedidoProgress">
+      <div class="menu-title">
+        <p>Pedido em andamento</p>
+      </div>
+      <div class="nameClient">
+        <input type="text" placeholder="Nome do cliente">
+      </div>
+      <div class="listPedidos">
+        <p id="products">Sem pedidos...</p>
+      </div>
+      <div class="total">
+        <p id="valor">Total: R$0,00</p>
+        <button class="enviar">Enviar</button>
+      </div>
+    </div>
+  </div>
+</section>
