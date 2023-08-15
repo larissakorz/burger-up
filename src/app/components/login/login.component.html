@@ -4,12 +4,13 @@
         <div class="inputs">
           <div class="email">
             <label>Email</label>
-            <input type='text' class='' placeholder='Digite seu email' id='email' />
+            <input type='text' class='' placeholder='Digite seu email' name='email' [(ngModel)]="email"/>
           </div>
           <div class="senha">
             <label>Senha</label>
-            <input type='password' class='' placeholder='Digite sua senha' id='senha' />
+            <input type='password' class='' placeholder='Digite sua senha' name='senha' [(ngModel)]="senha" />
           </div>
+          <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
         </div>
         <button class="button" (click)="onClick()">Entrar</button>
       </form>

@@ -18,7 +18,7 @@
   border: 1px solid #B68A5E;
   border-radius: 10%;
   width: 25rem;
-  height: 20rem;
+  height: 21rem;
   margin-top: 30px;
   color: #e4dad0;
   font-size: 25px;
@@ -80,6 +80,14 @@
   position: relative;
   bottom: 80px;
   left: 65px;
+}
+
+.error{
+  color: white;
+  background-color: rgb(131, 16, 16);
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 500px){
