@@ -17,7 +17,7 @@
       </div>
       <div class="listProducts">
         <ul>
-          <li *ngFor="let item of items">
+          <li *ngFor="let item of items" (click)="moverItem(item)">
             <span>{{ item.name }}</span>
             <span>R$ {{ item.price }},00</span>
           </li>
@@ -32,11 +32,19 @@
         <input type="text" placeholder="Nome do cliente">
       </div>
       <div class="listPedidos">
-        <p id="products">Sem pedidos...</p>
+        <div class="itemsMovidos" *ngFor="let item of destinoItems">
+          <div class="div-pedido">
+            <span>{{ item.name }}</span>
+            <span>R$ {{ item.price }},00</span>
+            <button id="menos" (click)="decrementQuantity(item)">-</button>
+            <p>{{ item.quantity }}</p>
+            <button id="menos" (click)="incrementQuantity(item)">+</button>
+          </div>
+        </div>
       </div>
       <div class="total">
-        <p id="valor">Total: R$0,00</p>
-        <button class="enviar">Enviar</button>
+        <p id="valor">Total: R$ {{ calcularQuantidadeTotal() }},00</p>
+        <button class="enviar" (click)="enviar()">Enviar</button>
       </div>
     </div>
   </div>
