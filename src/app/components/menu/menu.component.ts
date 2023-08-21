@@ -17,7 +17,7 @@ export class MenuComponent {
     this.router.navigate(['/fazerpedidos']);
   }
 
-  aguardandoPedido(){
-    this.router.navigate(['/aguardandopedidos']);
+  aguardandoEntrega(){
+    this.router.navigate(['/aguardandoentrega']);
   }
 }

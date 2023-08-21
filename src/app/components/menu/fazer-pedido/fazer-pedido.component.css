@@ -95,10 +95,11 @@ li{
   justify-content: space-between;
 }
 
-li:hover{
-  border: 3px solid #74432F;
+li:hover, #menos:hover, #mais:hover{
+  border: 2px solid #74432F;
   color: #74432F;
   background-color: #B68A5E;
+  cursor: pointer;
 }
 
 .nameClient{
@@ -124,9 +125,37 @@ li:hover{
 .listPedidos{
   width: 450px;
   height: 40vh;
+  overflow-y: auto;
   border-radius: 15px;
   background-color: #74432F;
   margin: 20px 0px 0px 40px;
+}
+
+.itemsMovidos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-pedido{
+  font-size: 18px;
+  color: #74432F;
+  background-color: #bb8854;
+  border-radius: 15px;
+  margin-top: 10px;
+  width: 350px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+#menos, #mais{
+  width: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #74432F;
+  font-size: 25px;
 }
 
 #products{
