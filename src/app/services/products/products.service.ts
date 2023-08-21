@@ -6,7 +6,7 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class ProductsService {
 
   private readonly URL: string = "http://localhost:8080";
   private readonly ACCESSTOKEN = localStorage.getItem('accessToken');

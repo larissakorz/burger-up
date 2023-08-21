@@ -11,13 +11,16 @@
         <p>Novo pedido</p>
       </div>
       <div class="foods">
-        <button class="coffee">Café da manhã</button>
-        <button class="burger">Hamburguers</button>
-        <button class="bebidas">Bebidas</button>
+        <button class="coffee" (click)="onClick('cafe')">Café da manhã</button>
+        <button class="burger" (click)="onClick('ham')">Hamburguers</button>
+        <button class="bebidas" (click)="onClick('drink')">Bebidas</button>
       </div>
       <div class="listProducts">
         <ul>
-          <li *ngFor="let item of items">{{ item.name }}</li>
+          <li *ngFor="let item of items">
+            <span>{{ item.name }}</span>
+            <span>R$ {{ item.price }},00</span>
+          </li>
         </ul>
       </div>
     </div>

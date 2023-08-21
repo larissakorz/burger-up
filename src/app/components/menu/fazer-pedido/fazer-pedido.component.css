@@ -77,7 +77,28 @@
 }
 
 .listProducts{
-  height: 45vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+li{
+  list-style-type: none;
+  font-size: 20px;
+  background-color: #74432F;
+  color: #bb8854;
+  border-radius: 15px;
+  margin-top: 5px;
+  width: 400px;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+}
+
+li:hover{
+  border: 3px solid #74432F;
+  color: #74432F;
+  background-color: #B68A5E;
 }
 
 .nameClient{
