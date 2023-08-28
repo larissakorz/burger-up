@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { OrderService } from 'src/app/services/order/order.service';
 
 @Component({
-  selector: 'app-aguardando-entrega',
-  templateUrl: './aguardando-entrega.component.html',
-  styleUrls: ['./aguardando-entrega.component.css']
+  selector: 'app-pedidos-entregues',
+  templateUrl: './pedidos-entregues.component.html',
+  styleUrls: ['./pedidos-entregues.component.css']
 })
-export class AguardandoentregaComponent {
+export class PedidosEntreguesComponent {
   orders: any[] = [];
 
   constructor(

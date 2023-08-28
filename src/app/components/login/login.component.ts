@@ -33,6 +33,12 @@ onClick() {
           case 'atendente':
             this.router.navigate(['/menu']);
             break;
+          case 'chef':
+            this.router.navigate(['/cozinha']);
+            break;
+          case 'admin':
+            this.router.navigate(['/']);
+            break;
           default:
             console.error('Função de usuário inválida:', response.user.role);
         }

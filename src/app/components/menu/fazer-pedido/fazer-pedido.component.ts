@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../../services/products/products.service';
+import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { Router } from '@angular/router';
+import { OrderService } from 'src/app/services/order/order.service';
 
 @Component({
   selector: 'app-fazer-pedido',
@@ -11,10 +13,15 @@ export class FazerPedidoComponent implements OnInit {
   items: any[] = [];
   destinoItems: any[] = [];
   type: string = 'cafe';
+  garcon: any = {};
+  nomeClient: string = "";
+  products: any[] = []
 
   constructor(
+    private router: Router,
     private dataService: ProductsService,
-    private router: Router
+    private storage: LocalStorageService,
+    private orderService: OrderService,
   ) {}
 
   onClick(param: string) {
@@ -24,8 +31,12 @@ export class FazerPedidoComponent implements OnInit {
   }
 
   moverItem(item: any) {
-    const itemCopy = { ...item, quantity: 1 };
-    this.destinoItems.push(itemCopy);
+    const itemExists = this.destinoItems.some((destinoItem: any) => destinoItem.id === item.id);
+
+    if (!itemExists) {
+      const itemCopy = { ...item, quantity: 0 };
+      this.destinoItems.push(itemCopy);
+    }
   }
 
   incrementQuantity(item: any) {
@@ -42,13 +53,64 @@ export class FazerPedidoComponent implements OnInit {
     return this.destinoItems.reduce((total, item) => total + (item.quantity * item.price), 0);
   }
 
+  excluirItem(index: number) {
+    this.destinoItems.splice(index, 1);
+  }
+
   ngOnInit(): void {
+    this.buscarDadosGarcon()
     this.dataService.getItems().subscribe((data: any) => {
       this.items = data.filter((item: any) => item.type === this.type);
     });
   }
 
+  buscarDadosGarcon() {
+    this.garcon = this.storage.getItem("user_data")
+  }
+
+  formatarData() {
+    const dataAtual = new Date();
+    const dataFormatada = `${dataAtual.getFullYear()}-${(dataAtual.getMonth() + 1).toString().padStart(2, '0')}-${dataAtual.getDate().toString().padStart(2, '0')} ${dataAtual.getHours().toString().padStart(2, '0')}:${dataAtual.getMinutes().toString().padStart(2, '0')}:${dataAtual.getSeconds().toString().padStart(2, '0')}`;
+    return dataFormatada;
+  }
+
+  addToCart(item: any) {
+    console.log(item);
+
+    const cartItemIndex = this.destinoItems.findIndex(cartItem => cartItem.id === item.id);
+    console.log(cartItemIndex)
+    if (cartItemIndex === -1) {
+      const cartItem = { ...item, quantity: 1 };
+      this.destinoItems.push(cartItem);
+    } else {
+      this.destinoItems[cartItemIndex].quantity++;
+    }
+    console.log(this.destinoItems)
+  }
+
   enviar(){
-    this.router.navigate(['/aguardandopedidos']);
+    const pedido = {
+      userId: this.garcon.id,
+      client: this.nomeClient,
+      products: this.destinoItems.map(cartItem => ({
+        product: cartItem,
+        qty: cartItem.quantity,
+        dateEntry: this.formatarData()
+      })),
+      status: "pending",
+      dateEntry: this.formatarData()
+    }
+    console.log(pedido)
+
+    this.orderService.addOrder(pedido)
+      .subscribe(
+        response => {
+          console.log('Pedido enviado com sucesso!', response);
+          this.router.navigate(['/aguardandoentrega']);
+        },
+        error => {
+          console.error('Erro ao enviar pedido:', error);
+        }
+      );
   }
 }

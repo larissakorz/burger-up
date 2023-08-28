@@ -27,9 +27,9 @@ button{
 }
 
 .divPedidos{
-  height: 55vh;
+  height: 50vh;
   width: 600px;
-  margin: 10px 0px 45px 0px;
+  margin: 25px 0px 25px 0px;
   background-color: #bb8854;
   border-radius: 15px;
 }
@@ -43,36 +43,14 @@ button{
 
 .pedidosSelecionados{
   background-color: #74432F;
-  height: 20vh;
+  height: 17vh;
   width: 500px;
   border-radius: 15px;
   margin: 10px 0px 0px 53px;
-  overflow-y: auto;
-  border: 2px solid black;
-}
-
-.productsQty{
-  display: flex;
-  justify-content: space-around;
-  font-size: 20px;
-  color: #bb8854;
 }
 
 ul {
   list-style-type: none;
-}
-
-.lista{
-  height: 15px;
-  width: 300px;
-  padding: 13px 50px;
-  margin: 7px 0px 10px 50px;
-  border-radius: 10px;
-  background-color: #bb8854;
-  color: #74432F;
-  display: flex;
-  justify-content: space-between;
-  font-size: 20px;
 }
 
 #pronto{
@@ -98,4 +76,3 @@ ul {
   color: #74432F;
   background-color: #B68A5E;
 }
-
