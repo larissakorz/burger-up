@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FazerPedidoRoutingModule } from '../fazer-pedido/fazer-pedido-routing.module';
+import { FazerPedidoRoutingModule } from './fazer-pedido-routing.module';
 import { FazerPedidoComponent } from './fazer-pedido.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { FazerPedidoComponent } from './fazer-pedido.component';
   imports: [
     CommonModule,
     FazerPedidoRoutingModule,
+    FormsModule
   ],
   exports: [
     FazerPedidoComponent

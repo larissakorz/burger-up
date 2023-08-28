@@ -17,7 +17,7 @@
       </div>
       <div class="listProducts">
         <ul>
-          <li *ngFor="let item of items" (click)="moverItem(item)">
+          <li *ngFor="let item of items" (click)="moverItem(item)" (click)="addToCart(item)">
             <span>{{ item.name }}</span>
             <span>R$ {{ item.price }},00</span>
           </li>
@@ -29,16 +29,17 @@
         <p>Pedido em andamento</p>
       </div>
       <div class="nameClient">
-        <input type="text" placeholder="Nome do cliente">
+        <input [(ngModel)] = "nomeClient" type="text" placeholder="Nome do cliente">
       </div>
       <div class="listPedidos">
-        <div class="itemsMovidos" *ngFor="let item of destinoItems">
+        <div class="itemsMovidos" *ngFor="let item of destinoItems; let i = index">
           <div class="div-pedido">
-            <span>{{ item.name }}</span>
-            <span>R$ {{ item.price }},00</span>
+            <span class="item">{{ item.name }}</span>
+            <span class="item">R$ {{ item.price }},00</span>
             <button id="menos" (click)="decrementQuantity(item)">-</button>
-            <p>{{ item.quantity }}</p>
+            <p class="item">{{ item.quantity }}</p>
             <button id="menos" (click)="incrementQuantity(item)">+</button>
+            <button (click)="excluirItem(i)" class="bin"><img src="../../../../assets/caixa.png" alt=""></button>
           </div>
         </div>
       </div>

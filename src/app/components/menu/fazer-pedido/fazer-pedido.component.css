@@ -143,11 +143,24 @@ li:hover, #menos:hover, #mais:hover{
   background-color: #bb8854;
   border-radius: 15px;
   margin-top: 10px;
-  width: 350px;
+  width: 370px;
   padding: 10px;
   display: flex;
   justify-content: space-around;
+}
 
+.item{
+  margin-top: 5px;
+}
+
+.bin img{
+  max-height: 30px;
+}
+
+.bin{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 #menos, #mais{
@@ -173,6 +186,7 @@ li:hover, #menos:hover, #mais:hover{
 #valor{
   font-size: 30px;
   color: #74432F;
+  font-weight: bold;
 }
 
 .enviar{
