@@ -46,6 +46,9 @@
       <div class="total">
         <p id="valor">Total: R$ {{ calcularQuantidadeTotal() }},00</p>
         <button class="enviar" (click)="enviar()">Enviar</button>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
       </div>
     </div>
   </div>
