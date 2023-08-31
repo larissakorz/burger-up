@@ -19,11 +19,14 @@ export class OrderService {
   }
 
   getOrders(): Observable<any[]> {
-
     return this.http.get<any[]>(`${this.URL}/orders`, this.OPTIONS);
   }
 
   addOrder(order: any): Observable<any> {
     return this.http.post<any>(`${this.URL}/orders`, order, this.OPTIONS);
+  }
+
+  editOrder(order: any): Observable<any>{
+    return this.http.patch<any>(`${this.URL}/orders/${order.id}`, order, this.OPTIONS)
   }
 }

@@ -8,21 +8,34 @@ import { OrderService } from 'src/app/services/order/order.service';
 })
 export class PedidosEntreguesComponent {
   orders: any[] = [];
+  order = {
+    status: 'pending',
+    currentStatus: 'Pendente'
+  };
 
   constructor(
     private orderService: OrderService,
   ) { }
 
   ngOnInit() {
-    this.loadOrders();
+    this.listOrders();
   }
 
-  private loadOrders() {
+  private listOrders() {
     this.orderService.getOrders().subscribe(data => {
+      data = data.filter(pedido => pedido.status === "concluido")
       data.map(pedido => pedido.currentStatus = pedido.status)
       console.log(data);
       this.orders = data;
       console.log(this.orders);
     });
+  }
+
+  entregueOrder(order: any){
+    order.status = 'concluido'
+    this.orderService.editOrder(order).subscribe(data => {
+      this.orders = []
+      this.listOrders()
+    })
   }
 }

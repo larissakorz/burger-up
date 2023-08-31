@@ -16,6 +16,7 @@ export class FazerPedidoComponent implements OnInit {
   garcon: any = {};
   nomeClient: string = "";
   products: any[] = []
+  errorMessage: string = '';
 
   constructor(
     private router: Router,
@@ -88,7 +89,12 @@ export class FazerPedidoComponent implements OnInit {
     console.log(this.destinoItems)
   }
 
-  enviar(){
+  enviar() {
+    if (this.destinoItems.length === 0) {
+      this.errorMessage = 'Não é possível enviar um pedido vazio.';
+      return;
+    }
+
     const pedido = {
       userId: this.garcon.id,
       client: this.nomeClient,
@@ -99,17 +105,21 @@ export class FazerPedidoComponent implements OnInit {
       })),
       status: "pending",
       dateEntry: this.formatarData()
-    }
-    console.log(pedido)
+    };
+
+    console.log(pedido);
 
     this.orderService.addOrder(pedido)
       .subscribe(
         response => {
-          console.log('Pedido enviado com sucesso!', response);
-          this.router.navigate(['/aguardandoentrega']);
+          this.errorMessage = '';
+          alert('Pedido enviado com sucesso!');
+          this.destinoItems = [];
+          this.nomeClient = "";
         },
         error => {
           console.error('Erro ao enviar pedido:', error);
+          this.errorMessage = 'Erro ao enviar o pedido. Por favor, tente novamente mais tarde.';
         }
       );
   }

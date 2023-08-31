@@ -1,25 +1,32 @@
-<section *ngIf="orders.length > 0">
+<section>
   <div class="header">
-    <p class="title">Pedidos para entregas</p>
+    <p class="title">Aguardando produção</p>
     <button><img src="../../../assets/iconizer-arrow-right-from-bracket-solid.svg" alt=""></button>
   </div>
-  <div class="geral" *ngFor="let order of orders">
-    <div class="divPedidos">
-      <div class="infos">
-        <p>ID do pedido: {{ order.id }}</p>
-        <p>Atendente: {{ order.userId }}</p>
-        <p>Cliente: {{ order.client }}</p>
-        <p>Data de entrada: {{ order.dateEntry | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+    <div class="geral" *ngFor="let order of orders">
+      <div class="divPedidos">
+        <div class="infos">
+          <p>ID do pedido: {{ order.id }}</p>
+          <p>Atendente: {{ order.userId }}</p>
+          <p>Cliente: {{ order.client }}</p>
+          <p>Data de entrada: {{ order.dateEntry | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+        </div>
+        <div class="pedidosSelecionados">
+          <div class="productsQty">
+            <p>Quantidade</p>
+            <p>Pedidos</p>
+          </div>
+          <ul>
+            <li class='lista' *ngFor="let product of order.products">
+              <p class="qty">{{ product.qty }}</p>
+              <p class="productName">{{ product.product.name }}</p>
+            </li>
+          </ul>
+        </div>
+        <button class="entregue" (click)="entregueOrder(order)">ENTREGUE</button>
       </div>
-      <div class="pedidosSelecionados">
-        <ul>
-          <li *ngFor="let product of order.products">
-            {{ product.qty }} {{ product.product.name }}
-          </li>
-        </ul>
-      </div>
-      <p id="pronto">Status: Concluído</p>
-      <button class="concluido">CONCLUÍDO</button>
     </div>
-  </div>
+    <div *ngIf="orders.length === 0" class="noOrdersMessage">
+      <p class="sem grande">Sem pedidos... 😪</p>
+    </div>
 </section>

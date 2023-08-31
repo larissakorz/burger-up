@@ -81,7 +81,7 @@ ul {
   font-size: 23px;
 }
 
-.concluido{
+.cancelar{
   padding: 12px;
   margin: 15px 0px 0px 222px;
   font-family: 'Irish Grover', cursive;
@@ -93,9 +93,21 @@ ul {
   cursor: pointer;
 }
 
-.concluido:hover{
+.cancelar:hover{
   border: 3px solid #74432F;
   color: #74432F;
   background-color: #B68A5E;
 }
 
+.sem{
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #bb8854;
+}
+
+.grande {
+  font-size: 50px;
+}
