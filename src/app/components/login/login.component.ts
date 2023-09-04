@@ -37,7 +37,7 @@ onClick() {
             this.router.navigate(['/cozinha']);
             break;
           case 'admin':
-            this.router.navigate(['/']);
+            this.router.navigate(['/admin']);
             break;
           default:
             console.error('Função de usuário inválida:', response.user.role);

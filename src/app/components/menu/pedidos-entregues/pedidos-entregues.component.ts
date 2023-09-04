@@ -32,7 +32,7 @@ export class PedidosEntreguesComponent {
   }
 
   entregueOrder(order: any){
-    order.status = 'concluido'
+    order.status = ''
     this.orderService.editOrder(order).subscribe(data => {
       this.orders = []
       this.listOrders()

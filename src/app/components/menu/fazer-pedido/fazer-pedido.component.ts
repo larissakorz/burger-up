@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../../services/products/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
-import { Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order/order.service';
 
 @Component({
@@ -19,7 +18,6 @@ export class FazerPedidoComponent implements OnInit {
   errorMessage: string = '';
 
   constructor(
-    private router: Router,
     private dataService: ProductsService,
     private storage: LocalStorageService,
     private orderService: OrderService,
@@ -107,20 +105,22 @@ export class FazerPedidoComponent implements OnInit {
       dateEntry: this.formatarData()
     };
 
-    console.log(pedido);
-
-    this.orderService.addOrder(pedido)
-      .subscribe(
-        response => {
-          this.errorMessage = '';
-          alert('Pedido enviado com sucesso!');
-          this.destinoItems = [];
-          this.nomeClient = "";
-        },
-        error => {
-          console.error('Erro ao enviar pedido:', error);
-          this.errorMessage = 'Erro ao enviar o pedido. Por favor, tente novamente mais tarde.';
-        }
-      );
+    this.orderService.addOrder(pedido).subscribe(
+      response => {
+        this.errorMessage = '';
+        alert('Pedido enviado com sucesso!');
+        this.destinoItems = [];
+        this.nomeClient = "";
+        // Atualize a propriedade de conclusão de pedidos para cada item no destinoItems
+        const currentTime = this.formatarData();
+        this.destinoItems.forEach(item => {
+          item.dateCompleted = currentTime;
+        });
+      },
+      error => {
+        console.error('Erro ao enviar pedido:', error);
+        this.errorMessage = 'Erro ao enviar o pedido. Por favor, tente novamente mais tarde.';
+      }
+    );
   }
 }
