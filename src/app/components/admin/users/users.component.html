@@ -1,0 +1,47 @@
+<section class="container">
+  <div class="geral">
+    <div class="users">
+      <p class="title2">Lista de funcionários</p>
+      <div class="users-list">
+        <ul>
+          <li *ngFor="let user of users">{{ user.email }} - {{ user.role }}</li>
+        </ul>
+      </div>
+      <p class="title">Atualização de cadastro</p>
+      <div class="users-editar">
+          <ul>
+            <li *ngFor="let user of users">
+              {{ user.email }} - {{ user.role }}
+              <div class="buttons">
+                <button class="editar" (click)="editUsers(user)">Editar</button>
+                <button class="excluir" (click)="deleteUsers(user)">Excluir</button>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </div>
+    <div class="admin">
+      <p class='title1'>Adicionar colaborador</p>
+    <div class="new-user">
+      <div class="inputs">
+        <div class="input-container">
+          <label for="email">Email:</label>
+          <input type="text" id="email" [(ngModel)]="newUser.email">
+        </div>
+        <div class="input-container">
+          <label for="password">Senha:</label>
+          <input type="password" id="password" [(ngModel)]="newUser.password">
+        </div>
+        <div class="input-container">
+          <label for="role">Role:</label>
+          <input type="text" id="role" [(ngModel)]="newUser.role">
+        </div>
+        <div class="button-container">
+          <button class="buttonAdd" (click)="addUsers()">Cadastrar</button>
+          <button class="buttonEdit" (click)="edit()">Atualizar</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>

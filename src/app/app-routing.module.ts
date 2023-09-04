@@ -6,6 +6,7 @@ import { FazerPedidoModule } from './components/menu/fazer-pedido/fazer-pedido.m
 import { AguardandoentregaModule } from './components/menu/aguardando-entrega/aguardando-entrega.module';
 import { PedidosEntreguesModule } from './components/menu/pedidos-entregues/pedidos-entregues.module';
 import { CozinhaModule } from '../app/components/cozinha/cozinha.module';
+import { AdminModule } from '../app/components/admin/admin.module'
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'cozinha',
     loadChildren: () => import('./components/cozinha/cozinha.module').then(m => CozinhaModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./components/admin/admin.module').then(m => AdminModule)
   },
 ];
 
