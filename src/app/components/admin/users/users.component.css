@@ -5,6 +5,28 @@
   justify-content: center;
 }
 
+.header{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 10px 0px 0px 70px;
+}
+
+img{
+  max-height: 60px;
+  cursor: pointer;
+}
+
+button{
+  background: transparent;
+  border: none;
+}
+
+.titulo{
+  font-size: 50px;
+  color: #bb8854;
+}
+
 .geral{
   display: flex;
   align-items: center;
@@ -21,12 +43,12 @@
 
 .users-editar{
   overflow: auto;
-  height: 40vh;
+  height: 30vh;
 }
 
 .users-list{
   overflow: auto;
-  height: 30vh;
+  height: 25vh;
 }
 
 ul li {
@@ -57,7 +79,7 @@ li {
   cursor: pointer;
 }
 
-.new-user{
+.novo-user{
   width: 100%;
   height: 40vh;
   margin-left: 60px;
@@ -68,7 +90,7 @@ li {
   align-items: center;
 }
 
-.input-container{
+.input{
   margin-top: 5px;
 }
 
@@ -86,7 +108,7 @@ li {
   outline: none;
 }
 
-.input-container label{
+.input label{
   color: #b67e47;
   margin-right: 15px;
 }
@@ -116,3 +138,26 @@ li {
   cursor: pointer;
 }
 
+@media screen and (max-width: 600px){
+  .geral{
+    display: block;
+    margin-right: 100px;
+  }
+
+  .users{
+    margin-left: 100px;
+  }
+
+  .input{
+    font-size: 30px;
+  }
+
+  #role{
+    margin-left: 30px;
+  }
+
+  .buttonAdd, .buttonEdit{
+    font-size: 25px;
+    margin: 15px 0px 0px 25px;
+  }
+}

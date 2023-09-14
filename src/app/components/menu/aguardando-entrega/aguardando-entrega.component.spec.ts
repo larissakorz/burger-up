@@ -1,21 +1,26 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
+import { OrderService } from '../../../services/order/order.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { AguardandoentregaComponent } from './aguardando-entrega.component';
-
-describe('AguardandoentregaComponent', () => {
-  let component: AguardandoentregaComponent;
-  let fixture: ComponentFixture<AguardandoentregaComponent>;
+describe('OrderService', () => {
+  let service: OrderService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AguardandoentregaComponent]
+      imports: [HttpClientTestingModule],
+      providers: [OrderService]
     });
-    fixture = TestBed.createComponent(AguardandoentregaComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    service = TestBed.inject(OrderService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  afterEach(() => {
+    httpMock.verify();
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
 });

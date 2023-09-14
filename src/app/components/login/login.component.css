@@ -90,10 +90,10 @@
   font-size: 20px;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (min-width: 350px) and (max-width: 700px){
   .container{
     display: block;
-    margin-top: 100px;
+    margin-left: -23px;
   }
 
   .form{
@@ -127,6 +127,6 @@
 
   #logo{
     font-size: 8px;
-    margin: 100px 0px 0px -15px;
+    margin-top: 100px;
   }
 }

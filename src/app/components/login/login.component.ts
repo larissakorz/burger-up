@@ -10,6 +10,15 @@ import { LocalStorageService } from '../../services/localStorage/local-storage.s
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  entregueOrder(mockOrder: { status: string; currentStatus: string; }) {
+    throw new Error('Method not implemented.');
+  }
+  orders(orders: any) {
+    throw new Error('Method not implemented.');
+  }
+  listOrders() {
+    throw new Error('Method not implemented.');
+  }
   email: string = '';
   senha: string = '';
   private loginSubscription: Subscription | undefined;

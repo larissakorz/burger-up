@@ -14,7 +14,7 @@ export class FazerPedidoComponent implements OnInit {
   type: string = 'cafe';
   garcon: any = {};
   nomeClient: string = "";
-  products: any[] = []
+  products: any[] = [];
   errorMessage: string = '';
 
   constructor(
@@ -105,13 +105,14 @@ export class FazerPedidoComponent implements OnInit {
       dateEntry: this.formatarData()
     };
 
+    console.log(pedido)
+
     this.orderService.addOrder(pedido).subscribe(
       response => {
         this.errorMessage = '';
         alert('Pedido enviado com sucesso!');
         this.destinoItems = [];
         this.nomeClient = "";
-        // Atualize a propriedade de conclusão de pedidos para cada item no destinoItems
         const currentTime = this.formatarData();
         this.destinoItems.forEach(item => {
           item.dateCompleted = currentTime;

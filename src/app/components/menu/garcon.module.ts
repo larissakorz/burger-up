@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { MenuRoutingModule } from './garcon-routing.module'
 import { MenuComponent } from './garcon.component';
 

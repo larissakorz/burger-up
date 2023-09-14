@@ -12,7 +12,7 @@
       </div>
       <div class="foods">
         <button class="coffee" (click)="onClick('cafe')">Café da manhã</button>
-        <button class="burger" (click)="onClick('ham')">Hamburguers</button>
+        <button class="burger" (click)="onClick('burger')">Hamburguers</button>
         <button class="bebidas" (click)="onClick('drink')">Bebidas</button>
       </div>
       <div class="listProducts">
@@ -29,7 +29,7 @@
         <p>Pedido em andamento</p>
       </div>
       <div class="nameClient">
-        <input [(ngModel)] = "nomeClient" type="text" placeholder="Nome do cliente">
+        <input type="text" [(ngModel)]="nomeClient" placeholder="Nome do cliente">
       </div>
       <div class="listPedidos">
         <div class="itemsMovidos" *ngFor="let item of destinoItems; let i = index">
