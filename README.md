@@ -1,6 +1,6 @@
 # BurgerUp
 
-[Link do projeto](https://heaven-burger-ajuliamm.vercel.app/)
+[Link do projeto](https://burger-up-omega.vercel.app/)
 
 # Índice
 
