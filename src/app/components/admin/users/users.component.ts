@@ -46,7 +46,6 @@ export class UsersComponent {
     }
   }
 
-
   addUsers() {
     this.userService.addUser(this.newUser).subscribe(() => {
       this.loadUsers();

@@ -46,3 +46,15 @@ button{
   color: #bb8854;
 }
 
+@media screen and (max-width: 768px){
+  .header button{
+    margin-right: 55px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .geral button{
+    font-size: 40px;
+    width: 350px;
+  }
+}
