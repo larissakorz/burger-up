@@ -38,7 +38,7 @@ A aplicação começa com uma página de login, onde o usuário deve inserir sua
     </tr>
     <tr>
       <td>Administrador</td>
-      <td>adm@burgerup.com</td>
+      <td>admin@burgerup.com</td>
       <td>123456</td>
     </tr>
   </table>
